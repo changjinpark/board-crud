@@ -40,14 +40,14 @@
 * URL : /board/create
 * Parameters : X
 * Success Response: status 200 OK
-* front : board-create.mustache(템플릿 엔진은 머스테치 말고 다른 것 사용해도 됌)
+* View 화면 : board-create.mustache
 
 <br>
 
 **게시글 수정**
 
 * Method: : `PUT`
-* URL : /api/board/{id}
+* URL : /api/board/{boardId}
 * Parameters
 
   | Name | Required | Type | Description |
@@ -71,17 +71,17 @@
 **게시글 수정 화면 조회**
 
 * Method: : `GET`
-* URL : /board/update/{id}
+* URL : /board/update/{boardId}
 * Parameters : x
 * Success Response: status 200 OK
-* front : board-update.mustache(템플릿 엔진은 다른 것 사용해도 됌)
+* View 화면 : board-update.mustache
 
 <br>
 
 **게시글 조회**
 
 * Method: : `GET`
-* URL : /api/board/{id}
+* URL : /api/board/{boardId}
 * Parameters : x
 * Success Response: status 200 OK
 
@@ -96,20 +96,20 @@
 
 <br>
 
-**메인 화면 조회(전체 게시글 조회) **
+**메인 화면 조회(전체 게시글 조회)**
 
 * Method: : `GET`
 * URL : /
 * Parameters : x
 * Success Response: status 200 OK
-* front : index.mustache(템플릿 엔진은 다른 것 사용해도 됌)
+* View 화면 : index.mustache
 
 <br>
 
 **게시글 삭제**
 
 * Method: : `DELETE`
-* URL : /api/board/{id}
+* URL : /api/board/{boardId}
 * Parameters : x
 * Success Response: status 200 OK
 
