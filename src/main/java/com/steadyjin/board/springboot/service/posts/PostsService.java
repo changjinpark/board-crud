@@ -50,4 +50,11 @@ public class PostsService {
                 () -> new IllegalArgumentException("해당 게시글이 없습니다. boardId=" + boardId));
         return new PostsReadResponseDto(posts);
     }
+
+    @Transactional
+    public void delete (Long boardId) {
+        Posts posts = postsRepository.findById(boardId).orElseThrow(
+                () -> new IllegalArgumentException("해당 게시글이 없습니다. boardId=" + boardId));
+        postsRepository.delete(posts);
+    }
 }

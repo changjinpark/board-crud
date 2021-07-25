@@ -11,11 +11,13 @@ public class PostsListResponseDto {
     private String title;
     private String author;
     private LocalDateTime modifiedDate;
+    private LocalDateTime createdDate;
 
     public PostsListResponseDto(Posts entity) {
         this.boardId = entity.getBoardId();
         this.title = entity.getTitle();
         this.author = entity.getAuthor();
         this.modifiedDate = entity.getModifiedDate();
+        this.createdDate = entity.getCreatedDate();
     }
 }

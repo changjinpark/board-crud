@@ -29,4 +29,10 @@ public class ApiController {
         return postsService.update(boardId, postsUpdateRequestDto);
     }
 
+    @DeleteMapping("/api/board/{boardId}")
+    public Long delete(@PathVariable Long boardId){
+        postsService.delete(boardId);
+        return boardId;
+    }
+
 }
