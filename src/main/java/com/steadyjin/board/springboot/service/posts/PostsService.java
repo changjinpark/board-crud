@@ -3,11 +3,15 @@ package com.steadyjin.board.springboot.service.posts;
 import com.steadyjin.board.springboot.domain.posts.Posts;
 import com.steadyjin.board.springboot.domain.posts.PostsRepository;
 import com.steadyjin.board.springboot.web.dto.PostsCreateRequestDto;
+import com.steadyjin.board.springboot.web.dto.PostsListResponseDto;
 import com.steadyjin.board.springboot.web.dto.PostsReadResponseDto;
 import com.steadyjin.board.springboot.web.dto.PostsUpdateRequestDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.List;
+import java.util.stream.Collectors;
 
 
 @RequiredArgsConstructor
@@ -36,5 +40,10 @@ public class PostsService {
 
         posts.update(postsUpdateRequestDto.getTitle(), postsUpdateRequestDto.getContent());
         return boardId;
+    }
+
+    @Transactional(readOnly = true)
+    public List<PostsListResponseDto> findAllDesc() {
+        return postsRepository.findAllDesc().stream().map(PostsListResponseDto::new).collect(Collectors.toList());
     }
 }
