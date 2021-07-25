@@ -2,10 +2,7 @@ package com.steadyjin.board.springboot.service.posts;
 
 import com.steadyjin.board.springboot.domain.posts.Posts;
 import com.steadyjin.board.springboot.domain.posts.PostsRepository;
-import com.steadyjin.board.springboot.web.dto.PostsCreateRequestDto;
-import com.steadyjin.board.springboot.web.dto.PostsListResponseDto;
-import com.steadyjin.board.springboot.web.dto.PostsReadResponseDto;
-import com.steadyjin.board.springboot.web.dto.PostsUpdateRequestDto;
+import com.steadyjin.board.springboot.web.dto.*;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -45,5 +42,12 @@ public class PostsService {
     @Transactional(readOnly = true)
     public List<PostsListResponseDto> findAllDesc() {
         return postsRepository.findAllDesc().stream().map(PostsListResponseDto::new).collect(Collectors.toList());
+    }
+
+    @Transactional(readOnly = true)
+    public PostsReadResponseDto findById(Long boardId) {
+        Posts posts = postsRepository.findById(boardId).orElseThrow(
+                () -> new IllegalArgumentException("해당 게시글이 없습니다. boardId=" + boardId));
+        return new PostsReadResponseDto(posts);
     }
 }
