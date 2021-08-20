@@ -22,7 +22,7 @@ public class IndexControllerTest {
         String body = this.testRestTemplate.getForObject("/", String.class);
 
         //then
-        assertThat(body).contains("스프링부트와 AWS로 구현하는 웹서비스");
+        assertThat(body).contains("스프링부트와 AWS로 구현한 CRUD 게시판 웹서비스");
     }
 
 }
