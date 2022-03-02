@@ -1,8 +1,5 @@
 # 스프링 부트와 AWS로 만드는 CRUD 게시판 웹서비스
 
-## 🔗 배포 URL
-* https://crud-953604015.ap-northeast-2.elb.amazonaws.com/
-
 ## 📋 사용기술
 ### 백엔드
 #### Spring boot2
